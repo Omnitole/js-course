@@ -291,31 +291,32 @@ let books = [
     }
 ];
 // -знайти наібльшу книжку.
-if(books[0].size > books[1].size && books[0].size > books[2].size){
-    console.log(books[0].name)
-} else if(books[1].size > books[0].size && books[1].size>books[2].size){
-    console.log(books[1].name)
-} else if(books[2].size > books[0].size && books[2].size > books[1].size){
-    console.log(books[2].name)
+let biggestBook = books[0];
+for(const book of books){
+    if(book.size > biggestBook.size){
+        biggestBook = book
+    }
 }
+console.log(biggestBook.name)
+
 console.log('New test');
 // - знайти книжку/ки з найбільшою кількістю жанрів
-if(books[0].genre.length > books[1].genre.length && books[0].genre.length > books[2].genre.length){
-    console.log(books[0].name)
-} else if(books[1].genre.length > books[0].genre.length && books[1].genre.length>books[2].genre.length){
-    console.log(books[1].name)
-} else if(books[2].genre.length > books[0].genre.length && books[2].genre.length > books[1].genre.length){
-    console.log(books[2].name)
+let biggestGenre = books[0];
+for(const book of books){
+    if(book.genre.length > biggestGenre.genre.length){
+        biggestGenre = book
+    }
 }
+console.log(biggestGenre.name)
 console.log('New test');
 // - знайти книжку/ки з найдовшою назвою
-if(books[0].name.length > books[1].name.length && books[0].name.length > books[2].name.length){
-    console.log(books[0].name)
-} else if(books[1].name.length > books[0].name.length && books[1].name.length>books[2].name.length){
-    console.log(books[1].name)
-} else if(books[2].name.length > books[0].name.length && books[2].name.length > books[1].name.length){
-    console.log(books[2].name)
+let longestBook = books[0];
+for(const book of books){
+    if(book.name.length > longestBook.name.length){
+        longestBook = book
+    }
 }
+console.log(longestBook.name)
 console.log('New test');
 // - знайти книжку/ки які писали 2 автори
 for (const book of books){
@@ -707,34 +708,16 @@ let citiesWithId = [
 //             },
 //             // TO BE CONTINUED .....
 //         ]
-
-for(let i=0;i<citiesWithId.length;i++){
-    if(usersWithId[0].id === citiesWithId[i].user_id){
-        usersWithId[0].address = citiesWithId[i]
-    }
-}
-for(let i=0;i<citiesWithId.length;i++){
-    if(usersWithId[1].id === citiesWithId[i].user_id){
-        usersWithId[1].address = citiesWithId[i]
-    }
-}
-for(let i=0;i<citiesWithId.length;i++){
-    if(usersWithId[2].id === citiesWithId[i].user_id){
-        usersWithId[2].address = citiesWithId[i]
-    }
-}
-for(let i=0;i<citiesWithId.length;i++){
-    if(usersWithId[3].id === citiesWithId[i].user_id){
-        usersWithId[3].address = citiesWithId[i]
-    }
-}
 let usersWithCities = [];
-for(let i=0;i<usersWithId.length;i++){
-    usersWithCities[i] = usersWithId[i]
+for(let i=0;i<citiesWithId.length;i++){
+    for(let k=0; k<citiesWithId.length;k++){
+        if(usersWithId[i].id === citiesWithId[k].user_id){
+            usersWithCities[i] = usersWithId[i];
+            usersWithCities[i].address = citiesWithId[k]
+        }
+    }
 }
-console.log(usersWithCities);
-
-
+console.log(usersWithCities)
 console.log('New test');
 //- Взяти масив з 10 чисел або створити його. Вивести в консоль тільки ті елементи, значення яких є парними.
     let numberzz = [1,2,3,4,5,6,7,8,9,10];
