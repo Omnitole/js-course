@@ -1,0 +1,14 @@
+.hidden {
+    display: none;
+}
+.block {
+    display: flex;
+
+}
+.wrap {
+    margin-top: 10px;
+    column-gap: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
